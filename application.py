@@ -3,13 +3,16 @@ import numpy as np
 import pandas as pd
 from flask import Flask, request, jsonify, render_template
 from sklearn.preprocessing import StandardScaler
+import os
 
 application = Flask(__name__)
 app = application
 
 # Load the model and scaler with absolute paths
-ridge_model = pickle.load(open(r'C:\Users\HP\Desktop\aws deployment project\model\model.pkl', 'rb'))
-standard_scaler = pickle.load(open(r'C:\Users\HP\Desktop\aws deployment project\model\scaler.pkl', 'rb'))
+model_path = os.path.join('model', 'model.pkl')
+ridge_model = pickle.load(open(model_path, 'rb'))
+scaler_path = os.path.join('model', 'scaler.pkl')
+scaler = pickle.load(open(scaler_path, 'rb'))
 
 @app.route('/')
 def index():
