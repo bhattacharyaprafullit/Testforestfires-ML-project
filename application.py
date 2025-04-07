@@ -34,7 +34,7 @@ def predict_data():
             Region = request.form.get("Region")
             
             # Include all 9 features or adjust according to your model requirements
-            new_data_scaled = standard_scaler.transform([[Temperature, RH, Ws, Rain, FFMC, DMC, ISI, 0, 0]])  # Adjust as needed
+            new_data_scaled = scaler.transform([[Temperature, RH, Ws, Rain, FFMC, DMC, ISI, 0, 0]])  # Adjust as needed
             
             # Make prediction - using ridge_model instead of model
             prediction = ridge_model.predict(new_data_scaled)
