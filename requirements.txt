@@ -5,3 +5,4 @@ seaborn
 scikit-learn
 pickle-mixin
 Flask
+gunicorn==21.2.0  # or whatever version you prefer
