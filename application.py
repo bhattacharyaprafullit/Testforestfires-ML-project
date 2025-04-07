@@ -5,7 +5,7 @@ from flask import Flask, request, jsonify, render_template
 from sklearn.preprocessing import StandardScaler
 import os
 
-application = Flask(__name__)
+application = Flask(__name__, template_folder='templates')
 app = application
 
 # Load the model and scaler with absolute paths
