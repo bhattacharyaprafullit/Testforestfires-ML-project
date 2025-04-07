@@ -3,11 +3,27 @@ import numpy as np
 import pandas as pd
 from flask import Flask, request, jsonify, render_template
 from sklearn.preprocessing import StandardScaler
+# Add this near the top of your application.py file
 import os
 
+# Create templates directory if it doesn't exist
+os.makedirs('templates', exist_ok=True)
 
-application = Flask(__name__, template_folder=os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates'))
-app = application
+# Create index.html file if it doesn't exist
+with open('templates/index.html', 'w') as f:
+    f.write("""<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Application</title>
+</head>
+<body>
+    <h1>Welcome to your application</h1>
+    <!-- Copy content from your existing index.html -->
+</body>
+</html>""")
+
+# Then continue with your existing code
+application = Flask(__name__, template_folder='templates')
 
 # Load the model and scaler with absolute paths
 model_path = os.path.join('model', 'model.pkl')
